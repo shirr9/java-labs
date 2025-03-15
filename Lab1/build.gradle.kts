@@ -16,3 +16,25 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.withType<JavaCompile>().configureEach {
+    options.encoding = "UTF-8"
+}
+
+tasks.withType<Javadoc>().configureEach {
+    (options as StandardJavadocDocletOptions).apply {
+        addStringOption("charset", "UTF-8")
+        addStringOption("docencoding", "UTF-8")
+        addStringOption("encoding", "UTF-8")
+    }
+}
+
+tasks.register<Jar>("javadocJar") {
+    dependsOn("javadoc")
+    archiveClassifier.set("javadoc")
+    from(tasks.javadoc.get().destinationDir)
+}
+
+tasks.named("build") {
+    dependsOn("javadoc")
+}
