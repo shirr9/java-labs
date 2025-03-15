@@ -1,6 +1,6 @@
-import org.atm.AuthenticationException;
-import org.atm.InsufficientFundsException;
-import org.atm.InvalidAmountException;
+import org.atm.exception.AuthenticationException;
+import org.atm.exception.InsufficientFundsException;
+import org.atm.exception.InvalidAmountException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.atm.ATM;
