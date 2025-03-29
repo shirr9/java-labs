@@ -13,3 +13,4 @@ plugins {
 rootProject.name = "shirr9"
 include("app")
 include("Lab1")
+include("Lab2")
