@@ -1,4 +1,4 @@
-package org.atm;
+package org.atm.exception;
 
 public class InvalidAmountException extends Exception {
     public InvalidAmountException(String message) {

@@ -1,4 +1,4 @@
-package org.atm;
+package org.atm.exception;
 
 public class AuthenticationException extends Exception {
     public AuthenticationException(String message) {
