@@ -16,3 +16,8 @@ include("Lab1")
 include("Lab2")
 include("Lab3")
 include("Lab4")
+include("Lab5")
+
+include("Lab5:pet-service")
+include("Lab5:owner-service")
+include("Lab5:web-gateway")

@@ -1,0 +1,51 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  owner-db:
+    image: postgres:15
+    container_name: owner-db
+    environment:
+      POSTGRES_DB: owner_db
+      POSTGRES_USER: owner_user
+      POSTGRES_PASSWORD: owner_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - owner-db-data:/var/lib/postgresql/data
+
+  pet-db:
+    image: postgres:15
+    container_name: pet-db
+    environment:
+      POSTGRES_DB: pet_db
+      POSTGRES_USER: pet_user
+      POSTGRES_PASSWORD: pet_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - pet-db-data:/var/lib/postgresql/data
+
+  user-db:
+    image: postgres:15
+    container_name: user-db
+    environment:
+      POSTGRES_DB: user_db
+      POSTGRES_USER: user_user
+      POSTGRES_PASSWORD: user_password
+    ports:
+      - "5434:5432"
+    volumes:
+      - user-db-data:/var/lib/postgresql/data
+
+volumes:
+  owner-db-data:
+  pet-db-data:
+  user-db-data:
